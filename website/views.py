@@ -38,8 +38,8 @@ def add(request):
 
 def subtract(request):
     from random import randint
-    num_1= randint(0,10)
-    num_2= randint(0,10)
+    num_1= randint(0,100)
+    num_2= randint(0,100)
 
     if request.method == "POST":
         answer= request.POST['answer']

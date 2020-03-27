@@ -12,7 +12,23 @@
 
     {% endif %}
       <br/><br/>
-    <h1><img src="static/images/{{ num_1 }}.png"> - <img src="static/images/{{ num_2 }}.png"></h1>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4" style="background-image:url('static/images/style.jpg'); height: 200px; width: 350px;" >   
+                <h1 style="font-size: 168px;">{{num_1}}</h1>
+            </div>
+            <div class="col-lg-2">
+                <h1 style="font-size: 129px;">-</h1>
+            </div>
+            <div class="col-lg-4" style="background-image:url('static/images/style.jpg'); height: 200px; width: 350px;">   
+                <h1 style="font-size: 168px;">{{num_2}}</h1>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+
+
     <br/><br/><br/>
     <form action="{% url 'subtract' %}" method="post">
     {% csrf_token %}
