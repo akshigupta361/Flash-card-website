@@ -19,13 +19,16 @@ def add(request):
 
         if int(answer)==correct_answer:
             my_answer="Correct!"
+            color="success"
         else:
-            my_answer="Incorrect! " + old_num_1 + " + " +  old_num_2 + " is " +  str(correct_answer)
+            my_answer="Incorrect! " + old_num_1 + " + " +  old_num_2 + " is " +  str(correct_answer) + " not " + answer
+            color="danger"
         return render(request, 'add.html', {
             'answer':answer,
             'my_answer':my_answer,
             'num_1':num_1,
             'num_2':num_2,
+            'color':color,
             })
 
     return render(request, 'add.html', {
