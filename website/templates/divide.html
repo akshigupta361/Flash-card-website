@@ -1,5 +1,45 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hello</h1>
+<center>
+    {% if my_answer %}
+    <div class="alert alert-{{color}} alert-dismissible fade show" role="alert">
+        {{my_answer}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+    {% endif %}
+      <br/><br/>
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-1"></div>
+            <div class="col-lg-4" style="background-image:url('static/images/style.jpg'); height: 200px; width: 350px;" >   
+                <h1 style="font-size: 168px;">{{num_1}}</h1>
+            </div>
+            <div class="col-lg-2">
+                <h1 style="font-size: 129px;">/</h1>
+            </div>
+            <div class="col-lg-4" style="background-image:url('static/images/style.jpg'); height: 200px; width: 350px;">   
+                <h1 style="font-size: 168px;">{{num_2}}</h1>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
+    </div>
+
+
+    <br/><br/><br/>
+    <form action="{% url 'divide' %}" method="post">
+    {% csrf_token %}
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Write your answer here" name="answer">
+    <input type="hidden" name="old_num_1" value="{{ num_1 }}">
+    <input type="hidden" name="old_num_2" value="{{ num_2 }}">
+  </div>
+  <br/>
+  <br/>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</center>
 {% endblock  %}
