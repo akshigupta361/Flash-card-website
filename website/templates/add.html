@@ -2,6 +2,7 @@
 
 {% block content %}
 <center>
+    {% if my_answer %}
     <div class="alert alert-{{color}} alert-dismissible fade show" role="alert">
         {{my_answer}}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -9,8 +10,9 @@
         </button>
       </div>
 
-   
-    <h1>{{ num_1 }} + {{ num_2 }}</h1>
+    {% endif %}
+      <br/><br/>
+    <h1><img src="static/images/{{ num_1 }}.png"> + <img src="static/images/{{ num_2 }}.png"></h1>
     <br/><br/><br/>
     <form action="{% url 'add' %}" method="post">
     {% csrf_token %}
